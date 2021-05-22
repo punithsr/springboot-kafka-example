@@ -7,18 +7,18 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class KafkaProducer {
+public class ProducerImpl {
 
-    private static final Logger log = LoggerFactory.getLogger(KafkaProducer.class);
+    private static final Logger log = LoggerFactory.getLogger(ProducerImpl.class);
     private static final String TOPIC = "test";
     private final KafkaTemplate<String, String> kafkaTemplate;
 
-    public KafkaProducer(final KafkaTemplate<String, String> kafkaTemplate) {
+    public ProducerImpl(final KafkaTemplate<String, String> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 
     public void sendMessage(final String message) {
-        log.info(String.format("#### -> Producing message -> %s", message));
+        log.info(String.format("**** Producing message ****-> %s", message));
         kafkaTemplate.send(TOPIC, message);
     }
 }

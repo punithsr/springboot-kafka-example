@@ -6,13 +6,13 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 @Service
-public class KafkaConsumer {
+public class ConsumerImpl {
 
-    private static final Logger log = LoggerFactory.getLogger(KafkaConsumer.class);
+    private static final Logger log = LoggerFactory.getLogger(ConsumerImpl.class);
     private static final String TOPIC = "test";
 
     @KafkaListener(topics = "test", groupId = "group-id")
     public void readMessage(final String message){
-        log.info(String.format("#### -> Consumed message -> %s", message));
+        log.info(String.format("**** Consumed message ****-> %s", message));
     }
 }
