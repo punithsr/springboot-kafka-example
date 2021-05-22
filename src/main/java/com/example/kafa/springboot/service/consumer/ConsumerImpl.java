@@ -9,10 +9,9 @@ import org.springframework.stereotype.Service;
 public class ConsumerImpl {
 
     private static final Logger log = LoggerFactory.getLogger(ConsumerImpl.class);
-    private static final String TOPIC = "test";
 
     @KafkaListener(topics = "test", groupId = "group-id")
-    public void readMessage(final String message){
+    public void readMessage(final String message) {
         log.info(String.format("**** Consumed message ****-> %s", message));
     }
 }

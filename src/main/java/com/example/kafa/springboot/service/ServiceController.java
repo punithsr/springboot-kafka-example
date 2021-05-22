@@ -12,12 +12,12 @@ public class ServiceController {
 
     private final ProducerImpl producer;
 
-    public ServiceController(final ProducerImpl producer){
+    public ServiceController(final ProducerImpl producer) {
         this.producer = producer;
     }
 
     @PostMapping(value = "/publish")
-    public void sendMessage(final @RequestParam("message") String message){
+    public void sendMessage(final @RequestParam("message") String message) {
         producer.sendMessage(message);
     }
 }
