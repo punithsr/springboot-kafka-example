@@ -10,7 +10,7 @@ public class ConsumerImpl {
 
     private static final Logger log = LoggerFactory.getLogger(ConsumerImpl.class);
 
-    @KafkaListener(topics = "test", groupId = "group-id")
+    @KafkaListener(topics = "${spring.kafka.topic}", groupId = "${spring.kafka.group-id}")
     public void readMessage(final String message) {
         log.info(String.format("**** Consumed message ****-> %s", message));
     }
